@@ -1,11 +1,11 @@
-
 class ProductList extends React.Component {
+
   handleProductUpVote(productId) {
-    console.log(productId + ' was upvoted.')
+    console.log(productId + ' was upvoted.');
   }
 
   render() {
-    const produt = Seed.products.sort((a, b) => (
+    const products = Seed.products.sort((a, b) => (
       b.votes - a.votes
     ));
     const productComponents = Seed.products.map((product) => (
@@ -20,7 +20,7 @@ class ProductList extends React.Component {
         productImageUrl={product.productImageUrl}
         onVote={this.handleProductUpVote}
       />
-    ))
+    ));
     return (
       <div className='ui unstackable items'>
         {productComponents}
@@ -33,11 +33,11 @@ class Product extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleUpVote = this.handleUpVote.bind(this);
+    this.handleUpVote = this.handleUpVote.bind(this)
   }
 
   handleUpVote() {
-    this.props.onVote(this.props.id);
+    this.props.onVote(this.props.id)
   }
 
   render() {
@@ -70,11 +70,11 @@ class Product extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
 ReactDOM.render(
   <ProductList />,
   document.getElementById('content')
-);
+)
